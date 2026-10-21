@@ -1,0 +1,33 @@
+{
+  "name": "decode-websites",
+  "version": "1.0.0",
+  "description": "Passive website reverse-engineering tool: design tokens, tech stack, APIs, structure and domain intel from a URL.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "setup": "playwright install chromium",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "demo:site": "node demo/fixture-site.mjs"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "playwright": "^1.64.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vedesh-reddy/decode-websites.git"
+  }
+}

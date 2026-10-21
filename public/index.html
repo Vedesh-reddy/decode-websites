@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site Recon</title>
+  <meta name="description" content="Passive website reverse engineering: design tokens, tech stack, APIs, structure and domain intel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>site<span class="brand-dim">/</span>recon</span>
+    </div>
+    <p class="tagline">Passive reverse engineering for any public website.</p>
+  </header>
+
+  <main class="app-main">
+    <form id="analyze-form" class="analyze-form" novalidate>
+      <label for="url-input" class="visually-hidden">Website URL</label>
+      <span class="prompt" aria-hidden="true">$</span>
+      <input id="url-input" type="text" inputmode="url" placeholder="https://example.com" autocomplete="off" spellcheck="false" required>
+      <button type="submit" id="analyze-btn">Analyze</button>
+    </form>
+    <p class="hint">Reads only what the site publicly serves: rendered CSS, network traffic, robots/sitemap, DNS, TLS and certificate logs.</p>
+
+    <div id="demo-banner" class="demo-banner" hidden>
+      <b>Static demo.</b> This is a saved report of a fictional test store (<code>demo/fixture-site.mjs</code>). Live analysis of any URL needs the Node server:
+      <a href="https://github.com/Vedesh-reddy/decode-websites#quick-start" target="_blank" rel="noopener noreferrer">run it locally</a>.
+    </div>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <section id="results" class="results" hidden>
+      <div class="result-head">
+        <div>
+          <h1 id="result-title" class="result-title"></h1>
+          <a id="result-url" class="result-url" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="btn-ghost" data-action="download-report">Download JSON</button>
+        </div>
+      </div>
+      <nav id="tabs" class="tabs" role="tablist" aria-label="Report sections"></nav>
+      <div id="panel" class="panel" role="tabpanel" tabindex="0"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
