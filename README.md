@@ -1,5 +1,4 @@
-# Decode Websites — Site Recon
-
+# Decode Websites
 Passive website reverse-engineering. Paste a URL and get the site's **design system, tech stack, APIs, structure and domain intel** in one report.
 
 **Live demo:** https://vedesh-reddy.github.io/decode-websites/
